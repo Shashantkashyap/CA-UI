@@ -1,562 +1,312 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useRef } from "react";
+// import { useNavigate } from "react-router-dom"; // Removed unused import
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import {
   FileText,
   Shuffle,
   CreditCard,
   Briefcase,
   BarChart2,
-  Award,
-  Users,
-  Clock,
-  Globe,
-  DollarSign,
-  Shield,
-  Settings,
-  Cpu,
-  TrendingUp,
   CheckCircle2,
-  ArrowRight,
-  Phone,
-  Mail,
-  Calendar,
+  Shield,
+  Users,
 } from "lucide-react";
 
 import Banner from "../components/Banner";
-import ServiceCard from "../components/ServiceCard";
 import ScrollSection from "../components/ScrollSection";
 import ChatButton from "../components/ChatButton";
 import AnimatedCounter from "../components/AnimatedCounter";
+import ServiceCarousel from "../components/ServiceCarousel";
 
-const HomePage: React.FC = () => {
-  const navigate = useNavigate();
+const Home = () => {
+  // const navigate = useNavigate(); // Removed unused navigate
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true });
 
-  const bannerImage =
+    const bannerImage =
     "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
   const scrollSectionBg =
     "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
-  const whyChooseUsPoints = [
-    {
-      icon: <FileText size={32} className="text-primary-600" />,
-      text: "One Stop Solution : If you want high-quality Bookkeeping, Accounting, Virtual CFO, System Setup & Migration services, we have it.",
-    },
-    {
-      icon: <DollarSign size={32} className="text-primary-600" />,
-      text: "Affordable : Rendering value based pricing so it stays win win for both of us.",
-    },
-    {
-      icon: <Shield size={32} className="text-primary-600" />,
-      text: "Secured Data : Your financial data is our bread. You can trust us with your financial data, because we take food seriously.",
-    },
-    {
-      icon: <Settings size={32} className="text-primary-600" />,
-      text: "Custom-Tailored Services : Our team is all-set to provide well-crafted solutions for your unique business needs.",
-    },
-    {
-      icon: <Cpu size={32} className="text-primary-600" />,
-      text: "Technologically Efficient : Singhal Nitin & Associates chooses the tech-savvy approach to automate your business and provide effective solutions.",
-    },
-    {
-      icon: <Users size={32} className="text-primary-600" />,
-      text: "Skilled Specialists : With CAs, CPAs, MBAs and other experienced expert personnel on our side, you get the best.",
-    },
-  ];
+
+  /* ===================== SERVICES ===================== */
+
+  // const services = [
+  //   {
+  //     icon: <FileText size={24} />,
+  //     title: "Accounting & Bookkeeping",
+  //     description:
+  //       "We provide structured accounting and bookkeeping services to ensure accuracy, transparency, and compliance with applicable accounting standards. Our approach enables businesses to maintain reliable financial records while focusing on operational efficiency.",
+  //     points: [
+  //       "Daily bookkeeping and transaction recording",
+  //       "Bank and ledger reconciliations",
+  //       "Preparation of financial statements",
+  //       "Compliance-ready accounting processes",
+  //     ],
+  //   },
+  //   {
+  //     icon: <Shuffle size={24} />,
+  //     title: "Software Migration & Accounting System Setup",
+  //     description:
+  //       "Our team assists businesses in migrating accounting data across platforms with minimal disruption. We ensure secure data transfer, optimal configuration, and long-term scalability of your accounting systems.",
+  //     points: [
+  //       "Accounting software evaluation and setup",
+  //       "Secure data migration and validation",
+  //       "Process automation and optimization",
+  //       "User training and support",
+  //     ],
+  //   },
+  //   {
+  //     icon: <CreditCard size={24} />,
+  //     title: "Accounts Management",
+  //     description:
+  //       "We manage accounts receivable and payable with a focus on improving cash flow visibility and strengthening financial control across operations.",
+  //     points: [
+  //       "Accounts receivable and payable management",
+  //       "Invoice tracking and aging analysis",
+  //       "Vendor reconciliation and follow-ups",
+  //       "Working capital monitoring",
+  //     ],
+  //   },
+  //   {
+  //     icon: <Briefcase size={24} />,
+  //     title: "Virtual CFO Services",
+  //     description:
+  //       "Our Virtual CFO services provide strategic financial guidance without the cost of a full-time CFO. We support informed decision-making aligned with long-term business objectives.",
+  //     points: [
+  //       "Budgeting and financial forecasting",
+  //       "Cash flow and profitability analysis",
+  //       "Management reporting and MIS",
+  //       "Strategic financial planning",
+  //     ],
+  //   },
+  //   // {
+  //   //   icon: <BarChart2 size={24} />,
+  //   //   title: "Financial Analytics & Reporting",
+  //   //   description:
+  //   //     "We convert financial data into actionable insights through structured analysis and professional reporting to support data-driven decision-making.",
+  //   //   points: [
+  //   //     "Cash flow forecasting and analysis",
+  //   //     "KPI tracking and performance review",
+  //   //     "Variance and trend analysis",
+  //   //     "Executive dashboards",
+  //   //   ],
+  //   // },
+  // ];
 
   const services = [
-    {
-      icon: <FileText size={32} />,
-      title: "Accounting and Bookkeeping",
-      description:
-        "Professional management of your financial records, ensuring accuracy and compliance with latest accounting standards.",
-    },
-    {
-      icon: <Shuffle size={32} />,
-      title: "Software Migration & Setup",
-      description:
-        "Seamless transition between accounting platforms with zero data loss and minimal business disruption.",
-    },
-    {
-      icon: <CreditCard size={32} />,
-      title: "Accounts Management",
-      description:
-        "Comprehensive handling of receivables, payables, and reconciliations with detailed aging analysis.",
-    },
-    {
-      icon: <Briefcase size={32} />,
-      title: "Virtual CFO Services",
-      description:
-        "Strategic financial leadership and expert guidance without the cost of a full-time CFO. Perfect for growing businesses.",
-    },
-    {
-      icon: <BarChart2 size={32} />,
-      title: "Financial Analytics",
-      description:
-        "In-depth financial reporting and analysis including cash flow forecasting, KPI tracking, and performance metrics.",
-    },
-  ];
+  {
+    icon: <FileText size={24} />,
+    title: "Accounting & Bookkeeping",
+    description:
+      "We deliver reliable accounting and bookkeeping services that help businesses maintain accurate financial records and comply with applicable accounting standards. Our processes are designed to support consistency, transparency, and audit readiness.",
+    points: [
+      "Day-to-day bookkeeping and transaction recording",
+      "Bank, cash, and ledger reconciliations",
+      "Preparation of periodic financial statements",
+      "Accounting processes aligned with statutory requirements",
+    ],
+  },
+  {
+    icon: <Shuffle size={24} />,
+    title: "Accounting System Setup & Software Migration",
+    description:
+      "We assist businesses in setting up accounting systems and migrating financial data across platforms in a structured and controlled manner, ensuring data integrity and continuity of operations.",
+    points: [
+      "Accounting software selection and initial setup",
+      "Data migration with validation and reconciliation",
+      "Process configuration based on business requirements",
+      "Basic system orientation and ongoing support",
+    ],
+  },
+  {
+    icon: <CreditCard size={24} />,
+    title: "Accounts Receivable & Payable Management",
+    description:
+      "We support the management of receivables and payables to improve visibility over outstanding balances and strengthen financial discipline across business operations.",
+    points: [
+      "Monitoring of receivables and payable balances",
+      "Invoice tracking and aging analysis",
+      "Vendor and customer reconciliation support",
+      "Working capital visibility and reporting",
+    ],
+  },
+  {
+    icon: <Briefcase size={24} />,
+    title: "Virtual CFO & Financial Advisory",
+    description:
+      "Our Virtual CFO services provide structured financial oversight and advisory support to businesses that require strategic input without engaging a full-time finance head.",
+    points: [
+      "Budgeting, forecasting, and financial planning",
+      "Cash flow and profitability review",
+      "Management reporting and MIS preparation",
+      "Decision-support advisory for business owners",
+    ],
+  },
+];
+
+  /* ===================== WHY US ===================== */
+
+  const whyChooseUsPoints = [
+  {
+    icon: <FileText size={22} className="text-primary-600" />,
+    text: "Comprehensive accounting and financial support delivered through a single, well-structured engagement model.",
+  },
+  {
+    icon: <Shuffle size={22} className="text-primary-600" />,
+    text: "Process-driven approach supported by appropriate use of technology to ensure accuracy and consistency.",
+  },
+  {
+    icon: <CreditCard size={22} className="text-primary-600" />,
+    text: "Clear and transparent pricing aligned with defined scopes of work and service deliverables.",
+  },
+  {
+    icon: <Briefcase size={22} className="text-primary-600" />,
+    text: "Practical financial advisory backed by professional experience across accounting, compliance, and reporting.",
+  },
+  {
+    icon: <Shield size={22} className="text-primary-600" />,
+    text: "Strong focus on data confidentiality, internal controls, and secure handling of financial information.",
+  },
+  {
+    icon: <Users size={22} className="text-primary-600" />,
+    text: "Dedicated team of qualified finance professionals focused on long-term client relationships and service continuity.",
+  },
+];
+
+//   const whyChooseUsPoints = [
+//   {
+//     icon: <FileText size={22} className="text-primary-600" />,
+//     text: "End-to-end accounting and financial management services delivered through a single, integrated engagement model.",
+//   },
+//   {
+//     icon: <Shuffle size={22} className="text-primary-600" />,
+//     text: "Technology-enabled processes designed to improve accuracy, efficiency, and consistency across financial operations.",
+//   },
+//   {
+//     icon: <CreditCard size={22} className="text-primary-600" />,
+//     text: "Transparent, value-based pricing aligned with clearly defined deliverables and measurable business outcomes.",
+//   },
+//   {
+//     icon: <Briefcase size={22} className="text-primary-600" />,
+//     text: "Strategic financial advisory backed by experienced professionals with deep domain and industry expertise.",
+//   },
+//   {
+//     icon: <Shield size={22} className="text-primary-600" />,
+//     text: "Strong data security and confidentiality standards to safeguard sensitive financial and business information.",
+//   },
+//   {
+//     icon: <Users size={22} className="text-primary-600" />,
+//     text: "Dedicated team of qualified finance professionals committed to long-term client success and compliance excellence.",
+//   },
+// ];
+
+
+  /* ===================== STATS ===================== */
 
   const stats = [
-    {
-      icon: <Clock size={28} />,
-      value: 10,
-      suffix: "+",
-      label: "Years of Experience",
-    },
-    {
-      icon: <Users size={28} />,
-      value: 100,
-      suffix: "+",
-      label: "Satisfied Clients",
-    },
-    {
-      icon: <Award size={28} />,
-      value: 250,
-      suffix: "+",
-      label: "Projects Completed",
-    },
-    {
-      icon: <Globe size={28} />,
-      value: 15,
-      suffix: "+",
-      label: "Countries Served",
-    },
-  ];
+  { label: "Years of Experience", value: 10, suffix: "+" },
+  { label: "Clients Served", value: 100, suffix: "+" },
+  { label: "Projects Completed", value: 250, suffix: "+" },
+  { label: "Countries Served", value: 15, suffix: "+" },
+];
 
-  const achievements = [
-    "ISO 9001:2015 Certified",
-    "Trusted by Fortune 500 Companies",
-    "99.9% Client Retention Rate",
-    "Award-Winning Service Excellence",
-  ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-slate-100 overflow-x-hidden">
       <Banner
-        title="Bookkeeping & Accounting Services"
-        subtitle="Get Best Services for Everyone"
-        backgroundImage={bannerImage}
+        title="Accounting & Bookkeeping Services"
+subtitle="Structured financial support focused on accuracy, compliance, and clarity"
+       backgroundImage={bannerImage}
       />
 
-      {/* Services Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        />
+      {/* ===================== OUR SERVICES ===================== */}
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4 max-w-6xl">
 
-        <div className="container mx-auto px-4 relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            viewport={{ once: true }}
-            className="text-center mb-16 md:mb-20"
-          >
-            <motion.h2
-              className="text-4xl md:text-5xl font-heading font-bold mb-6 bg-gradient-to-r from-primary-600 to-blue-600 bg-clip-text text-transparent"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Our Professional Services
-            </motion.h2>
-            <motion.p
-              className="text-secondary-600 text-lg md:text-xl max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              Comprehensive financial solutions tailored to elevate your
-              business performance and ensure compliance
-            </motion.p>
-          </motion.div>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <ServiceCard
-              icon={<FileText size={32} />}
-              title="Accounting and Bookkeeping"
-              description="Professional management of your financial records, ensuring accuracy and compliance with latest accounting standards."
-              delay={0.2}
-            />
-            <ServiceCard
-              icon={<Shuffle size={32} />}
-              title="Software Migration & Setup"
-              description="Seamless transition between accounting platforms with zero data loss and minimal business disruption."
-              delay={0.4}
-            />
-            <ServiceCard
-              icon={<CreditCard size={32} />}
-              title="Accounts Management"
-              description="Comprehensive handling of receivables, payables, and reconciliations with detailed aging analysis."
-              delay={0.6}
-            />
-          </motion.div>
+<div className="mb-14 max-w-3xl mx-auto text-center">
+  <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
+    Our Services
+  </h2>
 
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:w-4/5 mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <ServiceCard
-              icon={<Briefcase size={32} />}
-              title="Virtual CFO Services"
-              description="Strategic financial leadership and expert guidance without the cost of a full-time CFO. Perfect for growing businesses."
-              delay={0.8}
-            />
-            <ServiceCard
-              icon={<BarChart2 size={32} />}
-              title="Financial Analytics"
-              description="In-depth financial reporting and analysis including cash flow forecasting, KPI tracking, and performance metrics."
-              delay={1.0}
-            />
-          </motion.div>
+  <p className="text-slate-600 text-base md:text-[16px] leading-relaxed">
+  We provide structured and compliance-oriented financial services that help
+  businesses maintain accurate records, improve financial visibility, and
+  support informed decision-making.
+</p>
+</div>
 
-          {/* Decorative Elements */}
-          <motion.div
-            className="absolute top-0 right-0 w-72 h-72 bg-blue-600/5 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 0.8, 0.5],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-          <motion.div
-            className="absolute bottom-0 left-0 w-96 h-96 bg-primary-600/5 rounded-full blur-3xl"
-            animate={{
-              scale: [1, 1.3, 1],
-              opacity: [0.5, 0.7, 0.5],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
-        </div>
-      </section>
 
-      <ScrollSection
-        backgroundImage={scrollSectionBg}
-        title="Why Work With Us"
-        points={whyChooseUsPoints}
-      />
+    <div className="grid md:grid-cols-2 gap-16 items-center">
 
-      {/* Statistics Section */}
-      <section
-        ref={statsRef}
-        className="py-16 md:py-20 bg-primary-900 text-white"
+
+      {/* LEFT : IMAGE */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="relative flex justify-center"
       >
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Track Record
-            </h2>
-            <p className="text-primary-200 max-w-2xl mx-auto">
-              Numbers that speak for our commitment to excellence and client
-              satisfaction.
-            </p>
-          </motion.div>
+        <div className="relative">
+          <div className="absolute -inset-4 bg-primary-100/50 rounded-[30px] -z-10 blur-xl" />
+          <img
+            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3VyJTIwc2VydmljZXN8ZW58MHx8MHx8fDA%3D"
+            alt="Our Services"
+            className="max-w-full h-auto rounded-[20px] shadow-2xl"
+          />
+          {/* Floating Badge */}
+          <div className="absolute -bottom-6 -right-6 bg-white p-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce-slow">
+            <div className="bg-green-100 p-2 rounded-full">
+              <CheckCircle2 size={24} className="text-green-600" />
+            </div>
+            <div>
+              <p className="text-xs text-slate-500 font-medium">Success Rate</p>
+              <p className="text-lg font-bold text-slate-900">99.9%</p>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+      {/* RIGHT : SERVICES */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="w-full p-2"
+      >
+        <ServiceCarousel services={services} />
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+      {/* ===================== WHY WORK WITH US ===================== */}
+      <ScrollSection title="Why Work With Us" points={whyChooseUsPoints} backgroundImage={""} className="py-20 bg-white"/>
+
+      {/* ===================== STATS ===================== */}
+      <section ref={statsRef} className="py-16 bg-blue-950 text-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="text-center"
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="bg-primary-800 p-3 rounded-full text-primary-200 hover:bg-primary-700 transition-colors duration-300">
-                    {stat.icon}
-                  </div>
-                </div>
-                <div className="text-4xl font-bold mb-2 text-white">
+              <div key={index}>
+                <div className="text-3xl font-semibold">
                   <AnimatedCounter
                     end={stat.value}
                     suffix={stat.suffix}
                     isVisible={isStatsInView}
-                    duration={2.5}
                   />
                 </div>
-                <div className="text-primary-200 text-sm md:text-base">
+                <p className="text-primary-200 text-sm mt-1">
                   {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Achievements */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-4"
-          >
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center gap-2 bg-primary-800/50 rounded-lg py-3 px-4"
-              >
-                <CheckCircle2
-                  size={20}
-                  className="text-green-400 flex-shrink-0"
-                />
-                <span className="text-sm text-primary-100">{achievement}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Professional CTA Section */}
-      <section className="relative py-12 md:py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl overflow-hidden"
-            >
-              <div className="grid md:grid-cols-2 gap-0">
-                {/* Left Side - Content */}
-                <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
-                      <TrendingUp size={14} className="sm:w-4 sm:h-4" />
-                      <span>Grow Your Business</span>
-                    </div>
-
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-gray-900 leading-tight">
-                      Ready to Transform Your Financial Operations?
-                    </h2>
-
-                    <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">
-                      Partner with industry-leading financial experts and
-                      experience the difference professional accounting services
-                      can make to your business growth.
-                    </p>
-
-                    <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                      <div className="flex items-start gap-2 sm:gap-3">
-                        <div className="bg-green-100 p-1.5 sm:p-2 rounded-lg mt-1">
-                          <CheckCircle2
-                            size={16}
-                            className="text-green-600 sm:w-5 sm:h-5"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-0.5 sm:mb-1">
-                            Free Consultation
-                          </h4>
-                          <p className="text-gray-600 text-xs sm:text-sm">
-                            Get expert advice tailored to your business needs
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-2 sm:gap-3">
-                        <div className="bg-blue-100 p-1.5 sm:p-2 rounded-lg mt-1">
-                          <CheckCircle2
-                            size={16}
-                            className="text-blue-600 sm:w-5 sm:h-5"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-0.5 sm:mb-1">
-                            Quick Response Time
-                          </h4>
-                          <p className="text-gray-600 text-xs sm:text-sm">
-                            We respond to all inquiries within 24 hours
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-2 sm:gap-3">
-                        <div className="bg-purple-100 p-1.5 sm:p-2 rounded-lg mt-1">
-                          <CheckCircle2
-                            size={16}
-                            className="text-purple-600 sm:w-5 sm:h-5"
-                          />
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-0.5 sm:mb-1">
-                            No Obligation
-                          </h4>
-                          <p className="text-gray-600 text-xs sm:text-sm">
-                            Explore our services risk-free
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <motion.button
-                      whileHover={{
-                        scale: 1.02,
-                        boxShadow: "0 10px 40px rgba(0,0,0,0.15)",
-                      }}
-                      whileTap={{ scale: 0.98 }}
-                      onClick={() => navigate("/contact")}
-                      className="group bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-3 w-full md:w-auto justify-center"
-                    >
-                      <span>Schedule a Consultation</span>
-                      <ArrowRight
-                        size={20}
-                        className="group-hover:translate-x-1 transition-transform"
-                      />
-                    </motion.button>
-                  </motion.div>
-                </div>
-
-                {/* Right Side - Contact Options */}
-                <div className="bg-gradient-to-br from-primary-600 to-primary-800 p-6 sm:p-8 md:p-12 text-white flex flex-col justify-center">
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    viewport={{ once: true }}
-                    className="space-y-6 sm:space-y-8"
-                  >
-                    <div>
-                      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-6">
-                        Get in Touch
-                      </h3>
-                      <p className="text-primary-100 text-sm sm:text-base mb-6 sm:mb-8">
-                        Choose the most convenient way to reach out to us. Our
-                        team is here to help you succeed.
-                      </p>
-                    </div>
-
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 cursor-pointer"
-                    >
-                      <div className="bg-white/20 p-2 sm:p-3 rounded-lg">
-                        <Phone size={20} className="sm:w-6 sm:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs sm:text-sm text-primary-100">
-                          Call Us
-                        </p>
-                        <p className="font-semibold text-base sm:text-lg">
-                          +1 (555) 123-4567
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 cursor-pointer"
-                    >
-                      <div className="bg-white/20 p-2 sm:p-3 rounded-lg">
-                        <Mail size={20} className="sm:w-6 sm:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs sm:text-sm text-primary-100">
-                          Email Us
-                        </p>
-                        <p className="font-semibold text-base sm:text-lg break-all">
-                          info@snassociates.com
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    <motion.div
-                      whileHover={{ x: 5 }}
-                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 cursor-pointer"
-                    >
-                      <div className="bg-white/20 p-2 sm:p-3 rounded-lg">
-                        <Calendar size={20} className="sm:w-6 sm:h-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs sm:text-sm text-primary-100">
-                          Business Hours
-                        </p>
-                        <p className="font-semibold text-base sm:text-lg">
-                          Mon-Fri: 9AM - 6PM
-                        </p>
-                      </div>
-                    </motion.div>
-
-                    <div className="pt-4 sm:pt-6 border-t border-white/20">
-                      <p className="text-xs sm:text-sm text-primary-100">
-                        Join hundreds of satisfied clients who trust us with
-                        their financial operations.
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
+                </p>
               </div>
-            </motion.div>
+            ))}
           </div>
         </div>
-
-        {/* Background Decorations */}
-        <motion.div
-          className="absolute top-10 left-10 w-64 h-64 bg-primary-200/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
       </section>
 
       <ChatButton />
@@ -564,4 +314,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default Home;

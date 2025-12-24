@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FullWidthServiceCarousel from "../components/FullWidthServiceCarousel";
 import { motion } from "framer-motion";
 import {
   FileBarChart, // for Virtual CFO
@@ -18,133 +19,91 @@ import { Link, useNavigate } from "react-router-dom";
 
 const ServicesPage: React.FC = () => {
   const navigate = useNavigate();
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [hoveredProcess, setHoveredProcess] = useState<number | null>(null);
 
   const bannerImage =
     "https://images.pexels.com/photos/3182774/pexels-photo-3182774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
   const services = [
-    {
-      icon: <FileBarChart size={48} className="text-primary-500" />,
-      title: "Virtual CFO",
-      description:
-        "Strategic financial leadership without the cost of a full-time CFO.",
-      fullDescription:
-        "Our Virtual CFO service gives you access to strategic financial guidance from experienced professionals. Ideal for growing businesses that need expert oversight on financial planning, forecasting, budgeting, and KPI tracking without hiring a full-time executive.",
-      points: [
-        "Cash flow forecasting",
-        "Budgeting and planning",
-        "Financial KPI development",
-        "Investor reporting",
-        "Monthly strategy sessions",
-      ],
-    },
-    {
-      icon: <Receipt size={48} className="text-primary-500" />,
-      title: "Controller Services",
-      description:
-        "Experienced Controllers to oversee your accounting operations.",
-      fullDescription:
-        "Our Controller service provides accurate financial oversight and helps manage accounting teams, processes, and compliance. Ideal for businesses ready to upgrade from a bookkeeper to structured financial management.",
-      points: [
-        "Monthly close and reconciliations",
-        "Process improvement and documentation",
-        "Internal controls and compliance",
-        "Oversight of bookkeeping team",
-        "GAAP-compliant reporting",
-      ],
-    },
-    {
-      icon: <BookText size={48} className="text-primary-500" />,
-      title: "Transactional Accounting",
-      description:
-        "Reliable and accurate daily bookkeeping and financial records.",
-      fullDescription:
-        "Our Transactional service ensures that your books are always up to date. We handle your routine financial entries, reconciliations, and reporting with accuracy and timeliness.",
-      points: [
-        "Accounts payable and receivable",
-        "Bank and credit card reconciliations",
-        "Monthly financial statements",
-        "Expense tracking",
-        "Industry benchmark comparisons",
-      ],
-    },
-    {
-      icon: <CloudCog size={48} className="text-primary-500" />,
-      title: "Cloud Accounting Setup",
-      description:
-        "Modern cloud-based accounting solutions tailored for your business.",
-      fullDescription:
-        "We set up and optimize cloud accounting systems like QuickBooks Online and Xero, enabling secure, real-time access to your financials and improved workflow efficiency.",
-      points: [
-        "QuickBooks and Xero setup",
-        "Cloud system migration",
-        "App integrations and automations",
-        "User training and support",
-        "Custom chart of accounts",
-      ],
-    },
-    {
-      icon: <FileText size={48} className="text-primary-500" />,
-      title: "Financial Reporting & Analysis",
-      description: "Insightful reports to support informed business decisions.",
-      fullDescription:
-        "We provide detailed financial reporting and custom dashboards to help you understand performance, track trends, and make strategic decisions with confidence.",
-      points: [
-        "Monthly and quarterly reporting",
-        "Custom dashboards",
-        "Variance analysis",
-        "Cash flow reports",
-        "Performance trend insights",
-      ],
-    },
-    {
-      icon: <Banknote size={48} className="text-primary-500" />,
-      title: "Tax Preparation & Planning",
-      description:
-        "Strategic planning and accurate tax filing for peace of mind.",
-      fullDescription:
-        "We handle both individual and business tax preparation with year-round planning strategies to minimize liabilities and avoid surprises at tax time.",
-      points: [
-        "Business and personal tax prep",
-        "Quarterly estimated taxes",
-        "Tax-saving strategies",
-        "IRS compliance support",
-        "Filing for multiple states",
-      ],
-    },
-    {
-      icon: <ShieldCheck size={48} className="text-primary-500" />,
-      title: "Compliance & Audit Support",
-      description:
-        "Ensure financial compliance and prepare confidently for audits.",
-      fullDescription:
-        "We support your business in staying compliant with regulatory requirements, including audit preparation, internal reviews, and financial documentation.",
-      points: [
-        "Audit preparation and liaison",
-        "Internal control setup",
-        "1099/Payroll compliance",
-        "Sales tax filings",
-        "Financial policy documentation",
-      ],
-    },
-    {
-      icon: <BarChart3 size={48} className="text-primary-500" />,
-      title: "Business Advisory Services",
-      description:
-        "Financial strategy and advisory to support business growth.",
-      fullDescription:
-        "Beyond the books, our advisory services help you understand the financial impact of business decisions. We assist with strategic planning, pricing models, mergers, and more.",
-      points: [
-        "Business model analysis",
-        "Pricing and margin strategy",
-        "Break-even and ROI analysis",
-        "Growth planning",
-        "Exit strategy consulting",
-      ],
-    },
-  ];
+  {
+    title: "Accounting & Bookkeeping",
+    description:
+      "We provide structured accounting and bookkeeping support to help businesses maintain accurate financial records, ensure compliance with applicable standards, and establish consistent financial reporting practices.",
+    points: [
+      "Maintenance of day-to-day books of accounts with systematic recording of financial transactions",
+      "Periodic bank, cash, and ledger reconciliations to ensure accuracy and completeness of records",
+      "Preparation of monthly and periodic financial statements for internal review and reporting",
+      "Accounting processes designed to support audit readiness and statutory compliance",
+    ],
+  },
+  {
+    title: "Accounting System Setup & Software Migration",
+    description:
+      "We assist businesses in setting up accounting systems and migrating financial data in a controlled and well-documented manner, ensuring data integrity and continuity of accounting records.",
+    points: [
+      "Assessment of business requirements to support selection and configuration of accounting software",
+      "Structured migration of historical accounting data with reconciliation and validation checks",
+      "Configuration of accounting workflows aligned with business operations and reporting needs",
+      "Initial system orientation and post-migration support to ensure smooth adoption",
+    ],
+  },
+  {
+    title: "Accounts Receivable & Payable Management",
+    description:
+      "We support the management of receivables and payables to improve visibility over outstanding balances and strengthen financial discipline across customer and vendor transactions.",
+    points: [
+      "Monitoring and review of accounts receivable and payable balances on a periodic basis",
+      "Tracking of invoices, outstanding dues, and aging to support timely follow-ups",
+      "Vendor and customer reconciliation support to resolve differences and maintain clean balances",
+      "Reporting focused on working capital visibility and short-term cash flow planning",
+    ],
+  },
+  {
+    title: "Virtual CFO & Financial Advisory",
+    description:
+      "Our Virtual CFO services provide structured financial oversight and advisory support to businesses that require experienced financial guidance without engaging a full-time finance function.",
+    points: [
+      "Preparation and review of budgets, forecasts, and financial plans aligned with business goals",
+      "Analysis of cash flows, margins, and profitability to support informed decision-making",
+      "Management reporting and MIS preparation to provide clarity on financial performance",
+      "Ongoing financial advisory support to business owners and management teams",
+    ],
+  },
+  {
+    title: "Financial Reporting & MIS",
+    description:
+      "We assist businesses in preparing structured financial reports and management information systems (MIS) that provide clear visibility into financial performance and operational trends.",
+    points: [
+      "Preparation of periodic financial reports aligned with management and reporting requirements",
+      "Development of MIS formats to track key financial metrics and performance indicators",
+      "Variance analysis to compare actual performance against budgets or forecasts",
+      "Presentation of financial information in a clear and decision-oriented manner",
+    ],
+  },
+  {
+    title: "Compliance Support & Regulatory Filings",
+    description:
+      "We provide ongoing compliance support to help businesses meet statutory and regulatory requirements in a timely and organised manner.",
+    points: [
+      "Support for routine statutory filings and regulatory submissions",
+      "Maintenance of compliance calendars and tracking of due dates",
+      "Coordination and documentation support for audits and assessments",
+      "Assistance in responding to routine compliance queries and notices",
+    ],
+  },
+  {
+    title: "Process Review & Internal Control Support",
+    description:
+      "We assist businesses in reviewing accounting processes and internal controls to improve reliability of financial information and strengthen governance practices.",
+    points: [
+      "Review of existing accounting workflows and documentation",
+      "Identification of process gaps and control weaknesses",
+      "Recommendations to improve efficiency, accuracy, and control effectiveness",
+      "Support in implementing revised processes and internal controls",
+    ],
+  },
+];
+
 
   const processes = [
     {
@@ -251,88 +210,9 @@ const ServicesPage: React.FC = () => {
           </motion.div>
 
           {/* Services Grid Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative"
-                onMouseEnter={() => setHoveredService(index)}
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-blue-50 border border-blue-100 hover:border-blue-300 transition-all duration-300">
-                  {/* Background Gradients */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5" />
-                    <div className="absolute -inset-[500px] bg-blue-500/5 blur-3xl group-hover:animate-pulse" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative p-8">
-                    <div className="flex items-start gap-6">
-                      {/* Icon Section */}
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                          <div className="text-white">{service.icon}</div>
-                        </div>
-                      </div>
-
-                      {/* Text Content */}
-                      <div className="flex-grow">
-                        <h3 className="text-xl font-bold font-outfit text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm mb-4 transition-all duration-300 line-clamp-2 font-outfit">
-                          {service.description}
-                        </p>
-
-                        {/* Features List */}
-                        <motion.div
-                          initial={false}
-                          animate={{
-                            height: hoveredService === index ? "auto" : "0",
-                            opacity: hoveredService === index ? 1 : 0,
-                          }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="pt-4 border-t border-blue-100">
-                            <p className="text-gray-700 mb-3">
-                              {service.fullDescription}
-                            </p>
-                            <ul className="grid grid-cols-2 gap-2">
-                              {service.points.map((point, i) => (
-                                <motion.li
-                                  key={i}
-                                  initial={{ opacity: 0, x: -20 }}
-                                  animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: i * 0.1 }}
-                                  className="flex items-center gap-2 text-sm text-gray-600"
-                                >
-                                  <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
-                                  <span>{point}</span>
-                                </motion.li>
-                              ))}
-                            </ul>
-                          </div>
-                        </motion.div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Interactive Elements */}
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-1 bg-gradient-to-br from-blue-500 to-indigo-500"
-                    initial={{ width: "0%" }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </div>
-              </motion.div>
-            ))}
+          {/* Services Carousel */}
+          <div className="max-w-7xl mx-auto">
+            <FullWidthServiceCarousel services={services} />
           </div>
         </div>
       </section>
@@ -383,85 +263,63 @@ const ServicesPage: React.FC = () => {
 
       {/* CTA Section */}
 
-      <div className="container mx-auto px-4 relative z-10 mt-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <span className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-4 inline-block font-outfit relative">
-            Our Methodology
-            <motion.div
-              className="absolute -inset-1 bg-blue-100/30 rounded-lg -z-10"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            />
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent font-outfit">
-            Our Proven Process
-          </h2>
-          <p className="text-gray-600 text-base max-w-3xl mx-auto font-outfit leading-relaxed">
-            A systematic approach to excellence in financial management and
-            business growth.
-          </p>
-        </motion.div>
+     <div className="container mx-auto px-4 py-20">
 
-        <div className="max-w-7xl mx-auto mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-            {processes.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 hover:shadow-xl border border-gray-100 hover:border-blue-200 overflow-hidden"
-                onMouseEnter={() => setHoveredProcess(index)}
-                onMouseLeave={() => setHoveredProcess(null)}
-              >
-                <div className="absolute -right-16 -top-16 w-32 h-32 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-150 blur-2xl"></div>
+  {/* Header */}
+  <motion.div
+    initial={{ opacity: 0, y: 16 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="max-w-3xl mx-auto text-center mb-14"
+  >
+    <span className="text-primary-600 text-sm font-medium uppercase tracking-wide">
+      Our Methodology
+    </span>
 
-                <div className="relative z-10">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center group-hover:bg-blue-100 transition-all duration-300">
-                      <span className="text-blue-600 font-bold font-outfit">
-                        {step.number}
-                      </span>
-                    </div>
-                    <div className="pt-1">
-                      <h3 className="text-lg font-semibold font-outfit group-hover:text-blue-600 transition-colors duration-300">
-                        {step.title}
-                      </h3>
-                    </div>
-                  </div>
+    <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mt-3 mb-4">
+      A Clear & Structured Process
+    </h2>
 
-                  <motion.p
-                    className="text-gray-600 text-sm pl-16 transition-all duration-300"
-                    initial={false}
-                    animate={{
-                      height: hoveredProcess === index ? "auto" : "4.5rem",
-                    }}
-                  >
-                    {hoveredProcess === index
-                      ? step.fullDescription
-                      : step.description}
-                  </motion.p>
-                </div>
+    <p className="text-slate-600 text-base">
+      A practical approach designed to ensure accuracy, compliance, and clarity
+      across all financial engagements.
+    </p>
+  </motion.div>
 
-                <motion.div
-                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-500"
-                  initial={{ width: "0%" }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
+  {/* Process */}
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+    {processes.map((step, index) => (
+      <motion.div
+        key={index}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: index * 0.06 }}
+        viewport={{ once: true }}
+        className="group"
+      >
+        {/* Number */}
+        <span className="text-sm font-semibold text-primary-600 block mb-2">
+          {step.number}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-lg font-semibold text-slate-900 mb-2">
+          {step.title}
+        </h3>
+
+        {/* Short description */}
+        <p className="text-slate-600 text-sm leading-relaxed">
+          {step.description}
+        </p>
+
+        {/* Subtle divider */}
+        <div className="mt-6 h-px bg-slate-200 group-hover:bg-primary-600 transition-colors" />
+      </motion.div>
+    ))}
+  </div>
+</div>
+
 
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-blue-900">
