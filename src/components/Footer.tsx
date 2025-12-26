@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
         {/* Company Logo and Description */}
         <div className="mb-12">
           <div className="flex items-center mb-6">
-            <span className="text-2xl font-bold">SINGHAL NITIN ASSOCIATES</span>
+            <span className="text-2xl font-bold">FINOLYTIC</span>
           </div>
           <p className="text-gray-300 max-w-2xl text-lg leading-relaxed">
             Empowering your finances. Expert bookkeeping and accounting to keep your business on track
@@ -135,7 +135,7 @@ const Footer: React.FC = () => {
                   Contact
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link 
                   to="/referral" 
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
                 >
                   Referral Program
                 </Link>
-              </li>
+              </li> */}
             </ul>
 
             {/* Social Media Icons */}
