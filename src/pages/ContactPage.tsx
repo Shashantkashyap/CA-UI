@@ -1,7 +1,6 @@
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  MapPin,
   Phone,
   Mail,
   Clock,
@@ -14,20 +13,10 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import Banner from "../components/Banner";
 import ContactForm from "../components/ContactForm";
 import ChatButton from "../components/ChatButton";
 
-const handleChatClick = () => {
-  // For demonstration purposes only - would use react-router in a real app
-  console.log("Navigating to contact page");
-  window.location.href = "/contact";
-};
-
 const ContactPage: React.FC = () => {
-  const bannerImage =
-    "https://images.pexels.com/photos/3183165/pexels-photo-3183165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
-
   const contactInfo = [
     {
       icon: <Phone size={24} className="text-primary-500" />,
@@ -47,13 +36,36 @@ const ContactPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-blue-50 pt-20">
-      <Banner
-        title="Contact Us"
-        subtitle="We'd love to hear from you"
-        backgroundImage={bannerImage}
-        height="h-[50vh]"
-      />
+    <div className="bg-slate-50 pt-20 min-h-screen">
+      {/* ================= HERO SECTION ================= */}
+      {/* ================= HERO SECTION ================= */}
+      <section className="relative w-full py-24 bg-[#00254B] flex items-center overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-blue-500/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-indigo-500/10 rounded-full blur-[80px]" />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="inline-block px-4 py-1.5 rounded-full bg-blue-800/50 border border-blue-700/50 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm">
+              We're Here to Help
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+              Get in Touch <span className="text-blue-400">With Us</span>
+            </h1>
+            <p className="text-lg text-blue-100/80 max-w-2xl mx-auto leading-relaxed">
+              Have a question or want to discuss how we can help your business
+              thrive? Reach out to us through any channel below.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       <section className="py-20 md:py-28 relative">
         {/* Background decorative elements */}
@@ -63,27 +75,8 @@ const ContactPage: React.FC = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, type: "spring" }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <span className="text-blue-600 font-medium mb-4 inline-block font-outfit">
-              Ready to Transform Your Business?
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent font-outfit">
-              Get In Touch With Us
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto font-outfit">
-              Have a question or want to discuss how we can help your business
-              thrive? We're here to help! Reach out through any channel below.
-            </p>
-          </motion.div>
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-            <div className="lg:col-span-2 bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100">
+            <div className="lg:col-span-2 bg-white rounded-2xl p-6 md:p-8 shadow-xl border border-gray-100">
               <ContactForm />
             </div>
 
@@ -94,12 +87,12 @@ const ContactPage: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 backdrop-blur-sm bg-white/80"
+                  className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100"
                 >
                   <div className="inline-block p-3 bg-blue-50 rounded-xl mb-6">
                     <Mail className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="text-xl font-bold mb-6 font-outfit bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-xl font-bold mb-6 font-outfit text-slate-900">
                     Contact Details
                   </h3>
                   <div className="space-y-6">
@@ -114,20 +107,19 @@ const ContactPage: React.FC = () => {
                       >
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg flex items-center justify-center group-hover:from-blue-100 group-hover:to-indigo-100 transition-colors duration-300">
+                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center group-hover:bg-blue-100 transition-colors duration-300 text-blue-600">
                               {item.icon}
                             </div>
                           </div>
                           <div>
-                            <h4 className="text-sm font-semibold text-gray-900 mb-1 font-outfit">
+                            <h4 className="text-sm font-semibold text-slate-900 mb-1 font-outfit">
                               {item.title}
                             </h4>
-                            <p className="text-gray-600 font-outfit text-sm">
+                            <p className="text-slate-600 font-outfit text-sm">
                               {item.details}
                             </p>
                           </div>
                         </div>
-                        <div className="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-5 rounded-lg transition-opacity duration-300"></div>
                       </motion.div>
                     ))}
                   </div>
@@ -135,11 +127,11 @@ const ContactPage: React.FC = () => {
                   <div className="border-t border-gray-100 mt-8 pt-8">
                     <div className="flex items-center mb-4">
                       <Calendar className="w-5 h-5 text-blue-600 mr-2" />
-                      <h4 className="text-sm font-semibold font-outfit text-gray-900">
+                      <h4 className="text-sm font-semibold font-outfit text-slate-900">
                         Business Hours
                       </h4>
                     </div>
-                    <div className="space-y-2 text-sm text-gray-600 font-outfit">
+                    <div className="space-y-2 text-sm text-slate-600 font-outfit">
                       <div className="flex items-center">
                         <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
                         <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
@@ -202,10 +194,10 @@ const ContactPage: React.FC = () => {
                         <Mail className="w-5 h-5 text-blue-600" />
                       </motion.div>
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 font-outfit text-gray-900">
+                    <h3 className="text-lg font-semibold mb-2 font-outfit text-slate-900">
                       Stay Connected
                     </h3>
-                    <p className="text-sm text-gray-600 font-outfit mb-6">
+                    <p className="text-sm text-slate-600 font-outfit mb-6">
                       Follow us for expert insights and updates in accounting
                       and finance.
                     </p>
@@ -260,7 +252,7 @@ const ContactPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-blue-50 via-white to-blue-50">
+      <section className="py-24 bg-gradient-to-b from-slate-50 via-white to-slate-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -289,7 +281,7 @@ const ContactPage: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-900 via-blue-600 to-indigo-600 bg-clip-text text-transparent font-outfit relative"
+              className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 font-outfit relative"
             >
               Frequently Asked Questions
               <motion.div
@@ -303,7 +295,7 @@ const ContactPage: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-gray-600 text-lg max-w-2xl mx-auto font-outfit leading-relaxed"
+              className="text-slate-600 text-lg max-w-2xl mx-auto font-outfit leading-relaxed"
             >
               Find quick answers to common queries about our professional
               services and expertise
@@ -341,7 +333,7 @@ const ContactPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group relative bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-200 overflow-hidden flex-shrink-0 w-[300px]"
+                className="group relative bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-200 overflow-hidden flex-shrink-0 w-[300px]"
                 whileHover={{ y: -5 }}
               >
                 <div className="absolute -right-16 -top-16 w-48 h-32 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-150 blur-2xl"></div>
@@ -366,10 +358,10 @@ const ContactPage: React.FC = () => {
                     </motion.div>
                   </div>
                   <div>
-                    <h3 className="text-[18px] font-semibold mb-2 text-gray-900 font-outfit group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-[18px] font-semibold mb-2 text-slate-900 font-outfit group-hover:text-blue-600 transition-colors duration-300">
                       {faq.question}
                     </h3>
-                    <p className="text-xs text-gray-600 font-outfit leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-4">
+                    <p className="text-xs text-slate-600 font-outfit leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-4">
                       {faq.answer}
                     </p>
                   </div>
@@ -387,7 +379,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       <section className="py-16 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-indigo-50 opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-indigo-50 opacity-80"></div>
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-0 right-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
@@ -406,10 +398,10 @@ const ContactPage: React.FC = () => {
               <span className="text-blue-600 text-sm font-semibold tracking-wider uppercase mb-4 inline-block font-outfit">
                 Start Your Journey
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent font-outfit leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900 font-outfit leading-tight">
                 Ready to Elevate Your Financial Strategy?
               </h2>
-              <p className="text-gray-600 text-base md:text-lg mb-8 font-outfit leading-relaxed">
+              <p className="text-slate-600 text-base md:text-lg mb-8 font-outfit leading-relaxed">
                 Schedule a personalized consultation to discover tailored
                 solutions for your business growth.
               </p>
@@ -461,34 +453,34 @@ const ContactPage: React.FC = () => {
             >
               <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
-                  <h4 className="font-semibold text-gray-900 mb-1 font-outfit">
+                  <h4 className="font-semibold text-slate-900 mb-1 font-outfit">
                     Quick Response
                   </h4>
-                  <p className="text-sm text-gray-600 font-outfit">
+                  <p className="text-sm text-slate-600 font-outfit">
                     Get replies within 24 hours
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100">
-                  <h4 className="font-semibold text-gray-900 mb-1 font-outfit">
+                  <h4 className="font-semibold text-slate-900 mb-1 font-outfit">
                     Expert Team
                   </h4>
-                  <p className="text-sm text-gray-600 font-outfit">
+                  <p className="text-sm text-slate-600 font-outfit">
                     Dedicated professionals
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100">
-                  <h4 className="font-semibold text-gray-900 mb-1 font-outfit">
+                  <h4 className="font-semibold text-slate-900 mb-1 font-outfit">
                     Tailored Plans
                   </h4>
-                  <p className="text-sm text-gray-600 font-outfit">
+                  <p className="text-sm text-slate-600 font-outfit">
                     Customized solutions
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-gradient-to-br from-indigo-50 to-white border border-indigo-100">
-                  <h4 className="font-semibold text-gray-900 mb-1 font-outfit">
+                  <h4 className="font-semibold text-slate-900 mb-1 font-outfit">
                     Transparent Pricing
                   </h4>
-                  <p className="text-sm text-gray-600 font-outfit">
+                  <p className="text-sm text-slate-600 font-outfit">
                     Clear fee structure
                   </p>
                 </div>
