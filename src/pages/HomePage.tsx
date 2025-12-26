@@ -1,32 +1,30 @@
 import React, { useRef } from "react";
-// import { useNavigate } from "react-router-dom"; // Removed unused import
+import { useNavigate } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import {
   FileText,
   Shuffle,
   CreditCard,
   Briefcase,
-  BarChart2,
+
   CheckCircle2,
   Shield,
   Users,
 } from "lucide-react";
 
-import Banner from "../components/Banner";
+
 import ScrollSection from "../components/ScrollSection";
 import ChatButton from "../components/ChatButton";
 import AnimatedCounter from "../components/AnimatedCounter";
-import ServiceCarousel from "../components/ServiceCarousel";
+
+import WhyWorkWithUsCarousel from "../components/ScrollSection";
 
 const Home = () => {
-  // const navigate = useNavigate(); // Removed unused navigate
+  const navigate = useNavigate();
   const statsRef = useRef(null);
   const isStatsInView = useInView(statsRef, { once: true });
 
-    const bannerImage =
-    "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
-  const scrollSectionBg =
-    "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
+
 
 
   /* ===================== SERVICES ===================== */
@@ -147,32 +145,75 @@ const Home = () => {
 
   /* ===================== WHY US ===================== */
 
-  const whyChooseUsPoints = [
+ const whyChooseUsPoints = [
   {
-    icon: <FileText size={22} className="text-primary-600" />,
-    text: "Comprehensive accounting and financial support delivered through a single, well-structured engagement model.",
+    icon: <FileText size={22} className="text-blue-600" />,
+    title: "End-to-End Financial Support",
+    summary:
+      "A unified engagement model that delivers consistent, compliant, and well-governed accounting support.",
+    bullets: [
+      "Single point ownership across accounting functions",
+      "Integrated bookkeeping, reporting, and advisory",
+      "Processes aligned with statutory requirements",
+    ],
   },
   {
-    icon: <Shuffle size={22} className="text-primary-600" />,
-    text: "Process-driven approach supported by appropriate use of technology to ensure accuracy and consistency.",
+    icon: <Shuffle size={22} className="text-blue-600" />,
+    title: "Process-Driven & Technology Enabled",
+    summary:
+      "Structured workflows supported by appropriate accounting tools to ensure accuracy and efficiency.",
+    bullets: [
+      "Automated routine accounting activities",
+      "Reduced dependency on manual interventions",
+      "Consistent quality checks and reviews",
+    ],
   },
   {
-    icon: <CreditCard size={22} className="text-primary-600" />,
-    text: "Clear and transparent pricing aligned with defined scopes of work and service deliverables.",
+    icon: <CreditCard size={22} className="text-blue-600" />,
+    title: "Transparent Pricing Structure",
+    summary:
+      "Clearly defined scope and pricing model with no hidden costs or ambiguity.",
+    bullets: [
+      "Upfront pricing aligned with deliverables",
+      "Well-defined engagement boundaries",
+      "Predictable monthly or periodic billing",
+    ],
   },
   {
-    icon: <Briefcase size={22} className="text-primary-600" />,
-    text: "Practical financial advisory backed by professional experience across accounting, compliance, and reporting.",
+    icon: <Briefcase size={22} className="text-blue-600" />,
+    title: "CA-Led Advisory & Oversight",
+    summary:
+      "Guidance from experienced Chartered Accountants with practical industry exposure.",
+    bullets: [
+      "Financial interpretation beyond bookkeeping",
+      "Compliance-aware decision support",
+      "Business-focused financial insights",
+    ],
   },
   {
-    icon: <Shield size={22} className="text-primary-600" />,
-    text: "Strong focus on data confidentiality, internal controls, and secure handling of financial information.",
+    icon: <Shield size={22} className="text-blue-600" />,
+    title: "Data Security & Confidentiality",
+    summary:
+      "Strong internal controls and secure handling of sensitive financial information.",
+    bullets: [
+      "Restricted data access controls",
+      "Confidentiality-driven workflows",
+      "Secure document and data management",
+    ],
   },
   {
-    icon: <Users size={22} className="text-primary-600" />,
-    text: "Dedicated team of qualified finance professionals focused on long-term client relationships and service continuity.",
+    icon: <Users size={22} className="text-blue-600" />,
+    title: "Dedicated Professional Team",
+    summary:
+      "A consistent team that understands your business and ensures service continuity.",
+    bullets: [
+      "Dedicated engagement team",
+      "Continuity across reporting periods",
+      "Long-term client relationship focus",
+    ],
   },
 ];
+
 
 //   const whyChooseUsPoints = [
 //   {
@@ -214,79 +255,157 @@ const Home = () => {
 
   return (
     <div className="pt-20 bg-slate-100 overflow-x-hidden">
-      <Banner
-        title="Accounting & Bookkeeping Services"
-subtitle="Structured financial support focused on accuracy, compliance, and clarity"
-       backgroundImage={bannerImage}
-      />
+      {/* ===================== HERO BANNER ===================== */}
+      <section className="relative w-full min-h-[600px] bg-[#012a51] flex items-center overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-blue-600/20 rounded-full blur-[100px]" />
+          <div className="absolute top-1/2 -right-1/4 w-1/2 h-1/2 bg-blue-500/20 rounded-full blur-[100px]" />
+        </div>
 
-      {/* ===================== OUR SERVICES ===================== */}
-<section className="py-20 bg-white">
-  <div className="container mx-auto px-4 max-w-6xl">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* LEFT: TEXT */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-white space-y-6"
+            >
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                Accounting & <br />
+                <span className="text-blue-300">Bookkeeping Services</span>
+              </h1>
+              <p className="text-lg md:text-xl text-blue-100 max-w-xl leading-relaxed">
+                Structured financial support focused on accuracy, compliance, and clarity.
+                We ensure your business stays financially healthy and compliant.
+              </p>
+              
+              {/* Optional CTA or Decor */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="pt-4"
+              >
+                  <div className="h-1 w-20 bg-blue-400 rounded-full mb-6" />
+                  
+                  <button 
+                    onClick={() => navigate('/cpa-outsourcing')}
+                    className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 active:translate-y-0"
+                  >
+                    Get Started
+                  </button>
+              </motion.div>
+            </motion.div>
 
-
-<div className="mb-14 max-w-3xl mx-auto text-center">
-  <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 mb-4">
-    Our Services
-  </h2>
-
-  <p className="text-slate-600 text-base md:text-[16px] leading-relaxed">
-  We provide structured and compliance-oriented financial services that help
-  businesses maintain accurate records, improve financial visibility, and
-  support informed decision-making.
-</p>
-</div>
-
-
-    <div className="grid md:grid-cols-2 gap-16 items-center">
-
-
-      {/* LEFT : IMAGE */}
-      <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="relative flex justify-center"
-      >
-        <div className="relative">
-          <div className="absolute -inset-4 bg-primary-100/50 rounded-[30px] -z-10 blur-xl" />
-          <img
-            src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8b3VyJTIwc2VydmljZXN8ZW58MHx8MHx8fDA%3D"
-            alt="Our Services"
-            className="max-w-full h-auto rounded-[20px] shadow-2xl"
-          />
-          {/* Floating Badge */}
-          <div className="absolute -bottom-6 -right-6 bg-white p-3 rounded-xl shadow-xl flex items-center gap-3 animate-bounce-slow">
-            <div className="bg-green-100 p-2 rounded-full">
-              <CheckCircle2 size={24} className="text-green-600" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-medium">Success Rate</p>
-              <p className="text-lg font-bold text-slate-900">99.9%</p>
-            </div>
+            {/* RIGHT: IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, x: 50, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="relative"
+            >
+              {/* Image Glow/Shadow Effect */}
+              <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full transform scale-90" />
+              <img
+                src="/CA-banner.png"
+                alt="Accounting Services Banner"
+                className="relative w-full h-auto object-contain drop-shadow-2xl z-10"
+                style={{ maxHeight: "500px" }}
+              />
+            </motion.div>
           </div>
         </div>
-      </motion.div>
+      </section>
 
-      {/* RIGHT : SERVICES */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="w-full p-2"
-      >
-        <ServiceCarousel services={services} />
-      </motion.div>
+      {/* ===================== OUR SERVICES ===================== */}
+      <section className="py-24 bg-slate-50 relative overflow-hidden">
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[10%] -left-[10%] w-[500px] h-[500px] bg-blue-200/20 rounded-full blur-[100px]" />
+          <div className="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] bg-blue-100/20 rounded-full blur-[100px]" />
+        </div>
 
-    </div>
-  </div>
-</section>
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 relative inline-block"
+            >
+              Our Professional Services
+              <span className="absolute -bottom-2 left-1/4 right-1/4 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full" />
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-slate-600 text-lg leading-relaxed"
+            >
+              We provide structured and compliance-oriented financial services that help
+              businesses maintain accurate records, improve financial visibility, and
+              support informed decision-making.
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -8 }}
+                className="group bg-white rounded-3xl p-8 shadow-sm hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] transition-all duration-300 border border-slate-100 flex flex-col"
+              >
+                {/* Header: Icon & Title */}
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm">
+                    {React.cloneElement(service.icon as React.ReactElement, { size: 32 })}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-700 transition-colors">
+                      {service.title}
+                    </h3>
+                    <div className="h-1 w-12 bg-blue-200 rounded-full group-hover:w-20 transition-all duration-300" />
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-slate-600 mb-8 leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Points */}
+                <ul className="space-y-3 mt-auto">
+                  {service.points.map((point, i) => (
+                    <li key={i} className="flex items-start gap-3 text-[15px] text-slate-500">
+                      <div className="mt-1 bg-green-100 rounded-full p-0.5 shrink-0">
+                        <CheckCircle2 size={14} className="text-green-600" />
+                      </div>
+                      <span className="group-hover:text-slate-700 transition-colors">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Optional 'Learn More' link if desired, kept clean for now */}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ===================== WHY WORK WITH US ===================== */}
-      <ScrollSection title="Why Work With Us" points={whyChooseUsPoints} backgroundImage={""} className="py-20 bg-white"/>
-
+<WhyWorkWithUsCarousel
+  title="Why Work With Us"
+  subtitle="A structured, professional approach to accounting and financial management"
+  points={whyChooseUsPoints}
+/>
       {/* ===================== STATS ===================== */}
       <section ref={statsRef} className="py-16 bg-blue-950 text-white">
         <div className="container mx-auto px-4 max-w-5xl">
