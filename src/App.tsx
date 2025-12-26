@@ -10,6 +10,8 @@ import ResourcesPage from './pages/ResourcesPage';
 import IndustriesPage from './pages/IndustriesPage';
 import ConsultationPage from './pages/ConsultationPage';
 import ReferralPage from './pages/ReferralPage';
+import CPAOutsourcingPage from './pages/CPAOutsourcingPage';
+import FundAccountingPage from './pages/FundAccountingPage';
 
 function App() {
   const location = useLocation();
@@ -25,6 +27,8 @@ function App() {
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/consultation" element={<ConsultationPage />} />
         <Route path="/referral" element={<ReferralPage />} />
+        <Route path="/cpa-outsourcing" element={<CPAOutsourcingPage />} />
+        <Route path="/fund-accounting" element={<FundAccountingPage />} />
       </Route>
     </Routes>
   );
