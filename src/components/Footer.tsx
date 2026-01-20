@@ -149,13 +149,13 @@ const Footer: React.FC = () => {
             {/* Social Media Icons */}
             <div className="flex space-x-4">
               <a 
-                href="http://linkedin.com/in/nitinn-singhal" 
-                className="text-gray-400 hover:text-blue-400 transition-colors"
+                href="https://www.linkedin.com/in/rohit-agarwal-cpa-ca-a2baa0364" 
+                className="text-gray-400 ml-5  hover:text-blue-400 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={24} />
               </a>
-              <a 
+              {/* <a 
                 href="#" 
                 className="text-gray-400 hover:text-blue-400 transition-colors"
                 aria-label="Twitter"
@@ -175,7 +175,7 @@ const Footer: React.FC = () => {
                 aria-label="Instagram"
               >
                 <Instagram size={24} />
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="flex items-center">
               <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
-              <span className="text-gray-300 text-sm">Contact@Singhalnitinassociates.com</span>
+              <span className="text-gray-300 text-sm">finolytic@gmail.com</span>
             </div>
           </div>
         </div>
@@ -197,7 +197,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="pt-6 text-center border-t border-blue-800">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Singhal Nitin Associates. All rights reserved.
+            © {new Date().getFullYear()} Finolytics. All rights reserved.
           </p>
         </div>
       </div>

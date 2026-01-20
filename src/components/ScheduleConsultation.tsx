@@ -41,7 +41,7 @@ const ScheduleConsultation: React.FC = () => {
                 <div className="flex items-center mb-6">
                   <User size={52} className="text-secondary-400 mr-4" />
                   <div>
-                    <h3 className="text-2xl font-bold text-white">Singhal Nitin Associates</h3>
+                    <h3 className="text-2xl font-bold text-white">Rohit agarwal</h3>
                     <p className="text-primary-100">Financial Consultant</p>
                   </div>
                 </div>

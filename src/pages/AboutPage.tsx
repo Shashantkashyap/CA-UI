@@ -66,14 +66,14 @@ const AboutPage: React.FC = () => {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full bg-blue-800/40 border border-blue-700/50 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm">
-              Since 2013
+              Since 2022
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight">
               Pioneering Excellence in <br />
               <span className="text-blue-300">Global Accounting Services</span>
             </h1>
             <p className="text-blue-100/90 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-              Singhal Nitin & Associates bridges traditional financial expertise with cutting-edge technology to deliver scalable solutions for businesses worldwide.
+              Finolytic bridges traditional financial expertise with cutting-edge technology to deliver scalable solutions for businesses worldwide.
             </p>
           </motion.div>
         </div>
@@ -98,7 +98,7 @@ const AboutPage: React.FC = () => {
               
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  Founded in 2013, <strong>Singhal Nitin & Associates (SNA)</strong> emerged with a
+                  Founded in 2022, <strong>Finolytic</strong> emerged with a
                   bold vision: to create a global accountancy firm that seamlessly integrates 
                   expert financial guidance with modern technology.
                 </p>
@@ -181,11 +181,9 @@ const AboutPage: React.FC = () => {
                  </div>
                  
                  <div className="mt-12 relative z-10">
-                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-white/20 mb-4 bg-slate-200">
-                       <img src="/img1.jpg" alt="Nitin Singhal" className="w-full h-full object-cover" />
-                    </div>
+                   
                     <div>
-                       <div className="font-bold text-lg">Nitin Singhal</div>
+                       <div className="font-bold text-lg">Rohit Agarwal</div>
                        <div className="text-blue-300 text-sm">Founder & CEO</div>
                     </div>
                  </div>
@@ -203,7 +201,7 @@ const AboutPage: React.FC = () => {
                  
                  <div className="space-y-6 text-slate-600 leading-relaxed">
                     <p>
-                       When I founded Singhal Nitin & Associates in 2013, I envisioned a firm that would transcend traditional boundaries. Today, we've realized that vision by serving clients across the UK, US, Australia, and India.
+                       When I founded Finolytic in 2022, I envisioned a firm that would transcend traditional boundaries. Today, we've realized that vision by serving clients across the UK, US, Australia, and India.
                     </p>
                     <p>
                        We've embraced technology not as a replacement for human expertise, but as a powerful enabler. This allows us to deliver accurate, timely, and insightful financial guidance that drives decision-making.
@@ -234,18 +232,18 @@ const AboutPage: React.FC = () => {
            </div>
            
            <div className="flex flex-col md:flex-row items-start gap-12">
-              <div className="md:w-1/3 relative">
+              <div className="md:w-1/9 relative">
                  <div className="rounded-2xl overflow-hidden shadow-lg border border-slate-100">
-                    <img src="/img1.jpg" alt="Nitin Singhal" className="w-full h-auto object-cover" />
+                    {/* <img src="/img1.jpg" alt="Nitin Singhal" className="w-full h-auto object-cover" /> */}
                  </div>
                  {/* Badge */}
                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm border border-slate-100">
-                    <span className="text-[#012a51] font-bold text-sm">CFA Level 2 Candidate</span>
+                    {/* <span className="text-[#012a51] font-bold text-sm">CFA Level 2 Candidate</span> */}
                  </div>
               </div>
 
-              <div className="md:w-2/3">
-                 <h3 className="text-3xl font-bold text-slate-900 mb-4">Nitin Singhal, CA</h3>
+              <div className="md:w-8/9">
+                 <h3 className="text-3xl font-bold text-slate-900 mb-4">Rohit Agarwal, CA</h3>
                  
                  <div className="flex flex-wrap gap-2 mb-8">
                     {["Chartered Accountant", "QuickBooks ProAdvisor", "Xero Advisor"].map((tag, i) => (
@@ -257,11 +255,9 @@ const AboutPage: React.FC = () => {
 
                  <div className="space-y-4 text-slate-600 leading-relaxed mb-8">
                     <p>
-                       A qualified Chartered Accountant with close to a decade of successful experience, Nitin brings specialized skills in business transformation and professional advisory.
-                    </p>
+fied Public Accountant(CPA), Compliance  Director                    </p>
                     <p>
-                       Prior to establishing SNA, Nitin gained valuable experience at <strong>PricewaterhouseCoopers (PwC)</strong> and other prestigious firms. His background spans across international markets, giving him a unique perspective on global compliance and financial strategy.
-                    </p>
+US Certified Public Accountant(CPA) with 8+ years of expertise in accounting, taxation, and financial reporting, serving global clients with precision and compliance. Skilled in US-GAAP, IFRS, and advanced accounting software, delivering exceptional results in dynamic environments.                    </p>
                  </div>
 
                  <div className="border-t border-slate-100 pt-8">

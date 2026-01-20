@@ -53,10 +53,10 @@ const HomePage: React.FC = () => {
     },
     {
       icon: <Cpu size={32} className="text-primary-600" />,
-      text: "Technologically Efficient : Singhal Nitin & Associates chooses the tech-savvy approach to automate your business and provide effective solutions.",
+      text: "Technologically Efficient : Finolytic chooses the tech-savvy approach to automate your business and provide effective solutions.",
     },
     {
-      icon: <Users size={32} className="text-primary-600" />,
+      icon: <Users size={32} className="text-primary-600" />, 
       text: "Skilled Specialists : With CAs, CPAs, MBAs and other experienced expert personnel on our side, you get the best.",
     },
   ];

@@ -26,7 +26,7 @@ const ContactPage: React.FC = () => {
     {
       icon: <Mail size={24} className="text-primary-500" />,
       title: "Email Address",
-      details: "Contact@Singhalnitinassociates.com",
+      details: "finolytic@gmail.com",
     },
     {
       icon: <Clock size={24} className="text-primary-500" />,
@@ -203,33 +203,16 @@ const ContactPage: React.FC = () => {
                     </p>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                       {[
-                        {
-                          icon: <Facebook size={20} />,
-                          name: "Facebook",
-                          url: "https://www.facebook.com/nitin.singhal.75098?mibextid=wwXIfr&rdid=054tPrbFgnT2hw0N&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F1C1CVydtwN%252F%253Fmibextid%253DwwXIfr#",
-                          color: "hover:bg-blue-500",
-                        },
-                        {
-                          icon: <Twitter size={20} />,
-                          name: "Twitter",
-                          url: "#",
-                          color: "hover:bg-sky-500",
-                        },
-                        {
-                          icon: <Instagram size={20} />,
-                          name: "Instagram",
-                          url: "#",
-                          color: "hover:bg-pink-500",
-                        },
+                        
                         {
                           icon: <Linkedin size={20} />,
                           name: "LinkedIn",
-                          url: "http://linkedin.com/in/nitinn-singhal",
+                          url: "https://www.linkedin.com/in/rohit-agarwal-cpa-ca-a2baa0364",
                           color: "hover:bg-blue-600",
-                        },
+                        }
                       ].map((platform, index) => (
                         <motion.a
-                          key={index}
+                          key={index} 
                           href={platform.url}
                           target="_blank"
                           rel="noopener noreferrer"

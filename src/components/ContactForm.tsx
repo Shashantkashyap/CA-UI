@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, User, Mail, MessageCircle, Tag, Loader2, Check } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
 
 const ContactForm: React.FC = () => {
+
+  const service_id = "service_2ngatjl"
+  const auto_reply_template_id = "template_ujl101u"
+  const contact_us_template_id = "template_4gj68h9"
+  const PUBLIC_KEY = "HfjstsbOuioabFME_";
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,27 +27,51 @@ const ContactForm: React.FC = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      console.log('Form submitted:', formData);
-      
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    // 1️⃣ Admin Notification Email (tumko)
+    await emailjs.send(
+      service_id,
+      contact_us_template_id,
+      {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+      PUBLIC_KEY
+    );
+
+    // 2️⃣ Auto Reply Email (user ko)
+    await emailjs.send(
+      service_id,
+      auto_reply_template_id,
+      {
+        name: formData.name,
+        email: formData.email,
+        year: new Date().getFullYear(),
+      },
+      PUBLIC_KEY
+    );
+
+    // ✅ Success
+    setSubmitted(true);
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    });
+
+  } catch (error) {
+    console.error("EmailJS Error:", error);
+    alert("❌ Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <motion.div
