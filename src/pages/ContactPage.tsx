@@ -18,11 +18,7 @@ import ChatButton from "../components/ChatButton";
 
 const ContactPage: React.FC = () => {
   const contactInfo = [
-    {
-      icon: <Phone size={24} className="text-primary-500" />,
-      title: "Phone Number",
-      details: "+91 99282 83543",
-    },
+    
     {
       icon: <Mail size={24} className="text-primary-500" />,
       title: "Email Address",
@@ -165,15 +161,7 @@ const ContactPage: React.FC = () => {
                     We typically respond to all inquiries within 24 hours during
                     business days.
                   </p>
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    href="tel:+919928283543"
-                    className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-300 font-outfit"
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    Call Now
-                  </motion.a>
+                  
                 </motion.div>
 
                 <motion.div
@@ -415,7 +403,7 @@ const ContactPage: React.FC = () => {
                   </svg>
                 </motion.a>
                 <span className="text-gray-500 font-outfit text-sm">or</span>
-                <motion.a
+                {/* <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   href="tel:+919928283543"
@@ -423,7 +411,7 @@ const ContactPage: React.FC = () => {
                 >
                   <Phone size={18} className="mr-2" />
                   Call Us Now
-                </motion.a>
+                </motion.a> */}
               </div>
             </motion.div>
 

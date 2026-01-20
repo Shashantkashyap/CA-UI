@@ -183,10 +183,7 @@ const Footer: React.FC = () => {
         {/* Contact Information */}
         <div className="mt-12 pt-8 border-t border-blue-800">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="flex items-start">
-              <Phone className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
-              <span className="text-gray-300 text-sm">+91 99282 83543</span>
-            </div>
+            
             <div className="flex items-center">
               <Mail className="h-5 w-5 mr-3 text-blue-400 flex-shrink-0" />
               <span className="text-gray-300 text-sm">finolytic@gmail.com</span>
